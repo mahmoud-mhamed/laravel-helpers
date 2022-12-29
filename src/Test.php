@@ -2,12 +2,12 @@
 
 namespace Mahmoudmhamed\LaravelHelpers;
 
-use Illuminate\Support\Facades\Http;
+class Test
+{
+    public function justDoIt()
+    {
+        $response = ['quote' => 'test quote', 'author' => 'mahmoutd test'];
 
-class Test {
-    public function justDoIt() {
-        $response = ['quote'=>'test quote','author'=>'mahmoutd test'];
-
-        return $response['quote'] . ' -' . $response['author'];
+        return $response['quote'].' -'.$response['author'];
     }
 }
