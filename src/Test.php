@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelHelpers\Test;
+namespace Mahmoudmhamed\LaravelHelpers;
 
 use Illuminate\Support\Facades\Http;
 
