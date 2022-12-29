@@ -3,8 +3,8 @@
 namespace Mahmoudmhamed\LaravelHelpers\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Mahmoudmhamed\LaravelHelpers\LaravelHelpersServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {

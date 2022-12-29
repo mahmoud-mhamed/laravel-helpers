@@ -2,9 +2,9 @@
 
 namespace Mahmoudmhamed\LaravelHelpers;
 
+use Mahmoudmhamed\LaravelHelpers\Commands\LaravelHelpersCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Mahmoudmhamed\LaravelHelpers\Commands\LaravelHelpersCommand;
 
 class LaravelHelpersServiceProvider extends PackageServiceProvider
 {
