@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "mahmoud-mhamed/laravel-helpers",
+    "description": "This is my package laravel-helpers",
     "keywords": [
-        ":vendor_name",
+        "mahmoud-mhamed",
         "laravel",
-        ":package_slug"
+        "laravel-helpers"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/mahmoud-mhamed/laravel-helpers",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "mahmoud-mhamed",
+            "email": "mahmoudmohamed521997749@yahoo.com",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Mahmoudmhamed\\LaravelHelpers\\": "src",
+            "Mahmoudmhamed\\LaravelHelpers\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Mahmoudmhamed\\LaravelHelpers\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -61,10 +61,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Mahmoudmhamed\\LaravelHelpers\\LaravelHelpersServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "LaravelHelpers": "Mahmoudmhamed\\LaravelHelpers\\Facades\\LaravelHelpers"
             }
         }
     },
