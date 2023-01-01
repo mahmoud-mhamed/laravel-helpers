@@ -3,33 +3,36 @@
 namespace Mahmoudmhamed\LaravelHelpers\Traits;
 
 use Carbon\Carbon;
+use Spatie\LaravelIgnition\Tests\Support\Models\Car;
 
 trait ModelDateTrait
 {
     //for update date created_at and updated_at format
-    public function getCreatedAtAttribute($date): string
+    public function getCreatedAtAttribute($date): ?string
     {
-        if ($date!=null)
-            return Carbon::parse($date)->format('Y-m-d');
-        return Carbon::now()->format('Y-m-d');
-        if ($date!==null) {
-            $carbon = Carbon::parse($date);
-            if ($carbon->diffInHours() < 24) {
-                return $carbon->diffForHumans();
-            }
-            if($carbon->diffInDays() < 7) {
-                return $carbon->format('Y-m-d h:i A');
-            }
-            return $carbon->format('Y-m-d');
-        }
-
-        return '- - - -';
+        return $this->getDate($date);
     }
 
-    public function getUpdatedAtAttribute($date)
+    public function getUpdatedAtAttribute($date): ?string
     {
-        if ($date!=null)
-            return Carbon::parse($date)->format('Y-m-d h:i A');
-        return $date;
+        return $this->getDate($date);
+    }
+
+    private function getDate($date): ?string
+    {
+        if (!$date){
+            return config('helpers.ModelTrait.nullValue');
+        }
+        $carbon = Carbon::parse($date);
+        if (config('helpers.ModelTrait.viewInDiffForHumanIfLessThanOrEqual')!==null &&
+            $carbon->diffInHours() < config('helpers.ModelTrait.viewInDiffForHumanIfLessThanOrEqual')) {
+            return $carbon->diffForHumans();
+        }
+
+        if (config('helpers.ModelTrait.formatIfDiffInDayGreaterThan.value')!==null &&
+            $carbon->diffInDays() < config('helpers.ModelTrait.formatIfDiffInDayGreaterThan.value')) {
+            return $carbon->format(config('helpers.ModelTrait.formatIfDiffInDayGreaterThan.format'));
+        }
+        return $carbon->format(config('helpers.ModelTrait.format'));
     }
 }
