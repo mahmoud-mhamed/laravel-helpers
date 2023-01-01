@@ -3,7 +3,6 @@
 namespace Mahmoudmhamed\LaravelHelpers\Traits;
 
 use Carbon\Carbon;
-use Spatie\LaravelIgnition\Tests\Support\Models\Car;
 
 trait ModelDateTrait
 {
@@ -20,19 +19,20 @@ trait ModelDateTrait
 
     private function getDate($date): ?string
     {
-        if (!$date){
+        if (! $date) {
             return config('helpers.ModelTrait.nullValue');
         }
         $carbon = Carbon::parse($date);
-        if (config('helpers.ModelTrait.viewInDiffForHumanIfLessThanOrEqual')!==null &&
+        if (config('helpers.ModelTrait.viewInDiffForHumanIfLessThanOrEqual') !== null &&
             $carbon->diffInHours() < config('helpers.ModelTrait.viewInDiffForHumanIfLessThanOrEqual')) {
             return $carbon->diffForHumans();
         }
 
-        if (config('helpers.ModelTrait.formatIfDiffInDayGreaterThan.value')!==null &&
+        if (config('helpers.ModelTrait.formatIfDiffInDayGreaterThan.value') !== null &&
             $carbon->diffInDays() < config('helpers.ModelTrait.formatIfDiffInDayGreaterThan.value')) {
             return $carbon->format(config('helpers.ModelTrait.formatIfDiffInDayGreaterThan.format'));
         }
+
         return $carbon->format(config('helpers.ModelTrait.format'));
     }
 }

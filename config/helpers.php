@@ -20,7 +20,7 @@ return [
         'viewInDiffForHumanIfLessThanOrEqual' => 24,
         'formatIfDiffInDayGreaterThan' => [
             'value' => 7,
-            'format' => 'Y-m-d'
+            'format' => 'Y-m-d',
         ],
-    ]
+    ],
 ];
