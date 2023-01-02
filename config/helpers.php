@@ -9,16 +9,16 @@ return [
    |
    | This option controls model trait
    | format : Y-m-d h:i A | Y-m-d or any carbon format
-   | nullValue : return value if date is null
-   | viewInDiffForHumanIfLessThanOrEqual : convert value to diff for human if value less than or equal 24 H ,null if don't convert to diff for human
-   | formatIfDiffInDayGreaterThan : date format if diff in day grater than 7 , null => use default format
+   | null_value : return value if date is null
+   | format_diff_for_human_when_less_than_or_equal_hour : convert value to diff for human if value less than or equal 24 H ,null if don't convert to diff for human
+   | format_diff_in_day_grater_than : date format if diff in day grater than 7 , null => use default format
    |
    */
-    'ModelTrait' => [
+    'model_date_trait' => [
         'format' => 'Y-m-d h:i A',
-        'nullValue' => '- - - -',
-        'viewInDiffForHumanIfLessThanOrEqual' => 24,
-        'formatIfDiffInDayGreaterThan' => [
+        'null_value' => '- - - -',
+        'format_diff_for_human_when_less_than_or_equal_hour' => 24,
+        'format_diff_in_day_grater_than' => [
             'value' => 7,
             'format' => 'Y-m-d'
         ],
