@@ -20,7 +20,7 @@ return [
         'format_diff_for_human_when_less_than_or_equal_hour' => 24,
         'format_diff_in_day_grater_than' => [
             'value' => 7,
-            'format' => 'Y-m-d'
+            'format' => 'Y-m-d',
         ],
-    ]
+    ],
 ];
