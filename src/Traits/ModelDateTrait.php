@@ -4,7 +4,7 @@ namespace Mahmoudmhamed\LaravelHelpers\Traits;
 
 use Carbon\Carbon;
 
-trait model_date_trait
+trait ModelDateTrait
 {
     //for update date created_at and updated_at format
     public function getCreatedAtAttribute($date): ?string
