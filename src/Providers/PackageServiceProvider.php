@@ -15,7 +15,7 @@ class PackageServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
         $this->publishes([
-            __DIR__.'/../config/helpers.php' => config_path('helpers.php'),
+            __DIR__.'/config/helpers.php' => config_path('helpers.php'),
         ]);
     }
 

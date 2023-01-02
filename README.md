@@ -26,14 +26,16 @@ composer require mahmoud-mhamed/laravel-helpers
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-helpers-migrations"
+php artisan vendor:publish --tag="helpers-migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-helpers-config"
+php artisan vendor:publish --tag="helpers-config"
+php artisan vendor:publish --tag="helpers-config" --force
+
 ```
 
 This is the contents of the published config file:
