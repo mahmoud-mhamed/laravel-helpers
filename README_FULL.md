@@ -23,13 +23,18 @@ You can install the package via composer:
 composer require mahmoud-mhamed/laravel-helpers
 ```
 
+You can publish and run the migrations with:
+
+```bash
+php artisan vendor:publish --tag="helpers-migrations"
+php artisan migrate
+```
+
 You can publish the config file with:
 
 ```bash
 php artisan vendor:publish --tag="helpers-config"
-
-#for replace old config if exist
-php artisan vendor:publish --tag="helpers-config" --force 
+php artisan vendor:publish --tag="helpers-config" --force
 
 ```
 
@@ -37,29 +42,39 @@ This is the contents of the published config file:
 
 ```php
 return [
-    /*
-   |--------------------------------------------------------------------------
-   | Model Trait Defaults
-   |--------------------------------------------------------------------------
-   |
-   | This option controls model trait
-   | format : Y-m-d h:i A | Y-m-d or any carbon format
-   | null_value : return value if date is null
-   | format_diff_for_human_when_less_than_or_equal_hour : convert value to diff for human if value less than or equal 24 H ,null if don't convert to diff for human
-   | format_diff_in_day_grater_than : date format if diff in day grater than 7 , null => use default format
-   |
-   */
-    'model_date_trait' => [
-        'format' => 'Y-m-d h:i A',
-        'null_value' => '- - - -',
-        'format_diff_for_human_when_less_than_or_equal_hour' => 24,
-        'format_diff_in_day_grater_than' => [
-            'value' => 7,
-            'format' => 'Y-m-d',
-        ],
-    ],
 ];
 ```
+
+Optionally, you can publish the views using
+
+```bash
+php artisan vendor:publish --tag="laravel-helpers-views"
+```
+
+## Usage
+
+```php
+$laravelHelpers = new Mahmoudmhamed\LaravelHelpers();
+echo $laravelHelpers->echoPhrase('Hello, Mahmoudmhamed!');
+```
+
+## Testing
+
+```bash
+composer test
+```
+
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+## Security Vulnerabilities
+
+Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## Credits
 
