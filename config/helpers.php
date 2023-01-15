@@ -49,4 +49,15 @@ return [
         'default' => 'ar',
         'api-header-key' => 'Content-Language',
     ],
+
+    /*
+  |--------------------------------------------------------------------------
+  | ResponseJson setting
+  |--------------------------------------------------------------------------
+  |
+  | default-use-response-key : return response in array key response
+  */
+    'ResponseJson' => [
+        'default-use-response-key' => true,
+    ],
 ];
