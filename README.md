@@ -65,7 +65,34 @@ return [
             'format' => 'Y-m-d',
         ],
     ],
+
+    /*
+   |--------------------------------------------------------------------------
+   | EnumOptionsTrait
+   |--------------------------------------------------------------------------
+   |
+   | trans_file_name : store trans file name
+   */
+    'enum_options_trait' => [
+        'trans_file_name' => 'enums',
+    ],
+
+    /*
+   |--------------------------------------------------------------------------
+   | Localization setting
+   |--------------------------------------------------------------------------
+   |
+   | local : all available local
+   | default : default value for local
+   | api-header-key : api-header-key for set local
+   */
+    'localization' => [
+        'local' => ['ar', 'en'],
+        'default' => 'ar',
+        'api-header-key' => 'Content-Language',
+    ],
 ];
+
 ```
 
 ## Credits
