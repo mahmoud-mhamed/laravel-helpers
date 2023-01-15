@@ -33,6 +33,13 @@ php artisan vendor:publish --tag="helpers-config" --force
 
 ```
 
+Command To Make New Enum File:
+
+```bash
+#must add \Mahmoudmhamed\LaravelHelpers\Providers\PackageServiceProvider::class to config=>app->providers array
+php artisan make:enum FileName
+```
+
 This is the contents of the published config file:
 
 ```php
