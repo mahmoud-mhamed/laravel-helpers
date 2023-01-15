@@ -23,4 +23,15 @@ return [
             'format' => 'Y-m-d',
         ],
     ],
+
+    /*
+   |--------------------------------------------------------------------------
+   | EnumOptionsTrait
+   |--------------------------------------------------------------------------
+   |
+   | trans_file_name : store trans file name
+   */
+    'enum_options_trait' => [
+        'trans_file_name' => 'enums',
+    ],
 ];
