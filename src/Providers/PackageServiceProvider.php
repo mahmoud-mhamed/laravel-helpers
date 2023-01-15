@@ -25,6 +25,12 @@ class PackageServiceProvider extends ServiceProvider
                 MakeEnumCommand::class,
             ]);
         }
+
+        //load translation files
+        $this->loadTranslationsFrom(__DIR__.'/../Lang', 'helpers');
+        $this->publishes([
+            __DIR__.'/../lang' => $this->app->langPath('vendor/Lang'),
+        ]);
     }
 
     /**
@@ -32,7 +38,7 @@ class PackageServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom(
             __DIR__.'/../../config/helpers.php', 'helpers'

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Lang;
 
 /**
  * used to get and set locale of the current session.
+ * @author mahmoud-mhamed <mahmoud1272022@gmail.com>
  */
 class Localization
 {
@@ -27,23 +28,21 @@ class Localization
      */
     public static function setLocale(string $language): bool
     {
-        $language = match ($language) {
-            'en' => 'en',
-            default => 'ar'
-        };
+        $locals = config('helpers.localization.local', ['ar', 'en']);
+        $language = in_array($language, $locals) ? $language : config('helpers.localization.default', 'ar');
         return App::setLocale($language) ?? true;
     }
 
     /**
-     * @param string $locale
+     * @param string|null $locale
      * @return JsonResponse|void
      */
-    public static function setLocaleHeader(string $locale=null)
+    public static function setLocaleHeader(string $locale = null)
     {
-        if (!$locale){
-            $locale = request()->header('Content-Language');
+        if (!$locale) {
+            $locale = request()->header(config('helpers.localization.api-header-key', 'Content-Language'));
             if (!$locale)
-                return response()->json(['message' => Lang::get('auth.setHeaderLang')], 200);
+                return response()->json(['message' => trans('helpers::LaravelHelper.setHeaderLang')], 200);
         }
 
         self::setlocale($locale);
@@ -60,7 +59,7 @@ class Localization
         if (is_array($value)) {
             $local = $local ?? self::getLocale();
             if ($local != '*')
-                return $value[$local] ?? $value['ar'] ?? $value;
+                return $value[$local] ?? $value[config('helpers.localization.default', 'ar')] ?? $value;
         }
         return $value;
     }
