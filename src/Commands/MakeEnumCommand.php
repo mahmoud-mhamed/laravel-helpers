@@ -29,7 +29,7 @@ enum $fileName: string
 }");
              $this->alert("Enum $folder_name\\$fileName Created Successfully");
         } else {
-             $this->info("Enum $fileName already exists");
+             $this->info("Enum $folder_name\\$fileName already exists");
         }
     }
 }

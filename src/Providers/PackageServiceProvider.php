@@ -3,6 +3,7 @@
 namespace Mahmoudmhamed\LaravelHelpers\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Mahmoudmhamed\LaravelHelpers\Commands\MakeBaseModelCommand;
 use Mahmoudmhamed\LaravelHelpers\Commands\MakeEnumCommand;
 
 class PackageServiceProvider extends ServiceProvider
@@ -23,6 +24,7 @@ class PackageServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 MakeEnumCommand::class,
+                MakeBaseModelCommand::class,
             ]);
         }
 
