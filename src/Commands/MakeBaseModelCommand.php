@@ -22,9 +22,11 @@ class MakeBaseModelCommand extends Command
 namespace App\\$folder_name;
 
 use Illuminate\Database\Eloquent\Model;
+use Mahmoudmhamed\LaravelHelpers\Traits\ModelDateTrait;
 
 class $fileName extends Model
 {
+    use ModelDateTrait;
 
 }");
              $this->alert("Base Model $folder_name\\$fileName Created Successfully");
