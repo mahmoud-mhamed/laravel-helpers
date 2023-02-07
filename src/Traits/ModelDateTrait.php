@@ -17,6 +17,11 @@ trait ModelDateTrait
         return $this->getDate($date);
     }
 
+    public function getDeletedAtAttribute($date): ?string
+    {
+        return $this->getDate($date);
+    }
+
     private function getDate($date): ?string
     {
         if (! $date) {
