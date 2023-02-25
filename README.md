@@ -33,6 +33,12 @@ php artisan vendor:publish --tag="helpers-config" --force
 
 ```
 
+You can publish command create builder:
+
+```bash
+php artisan vendor:publish --tag="command-create-builder"
+```
+
 Command To Make New Enum File:
 
 ```bash

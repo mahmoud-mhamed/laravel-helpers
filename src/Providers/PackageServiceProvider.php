@@ -4,6 +4,7 @@ namespace Mahmoudmhamed\LaravelHelpers\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Mahmoudmhamed\LaravelHelpers\Commands\MakeBaseModelCommand;
+use Mahmoudmhamed\LaravelHelpers\Commands\MakeBuilderCommand;
 use Mahmoudmhamed\LaravelHelpers\Commands\MakeEnumCommand;
 
 class PackageServiceProvider extends ServiceProvider
@@ -33,6 +34,11 @@ class PackageServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../lang' => $this->app->langPath('vendor/Lang'),
         ]);
+
+        //publish create builder for model command
+        $this->publishes([
+            __DIR__.'/../Commands/MakeBuilderCommand.php' => app_path('Console/Commands/MakeBuilderCommand.php'),
+        ], 'command-create-builder');
     }
 
     /**
