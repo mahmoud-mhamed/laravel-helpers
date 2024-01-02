@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Mahmoudmhamed\LaravelHelpers\Commands;
 
 use Illuminate\Console\Command;
 
@@ -12,6 +12,7 @@ class MakeBuilderCommand extends Command
 
     public function handle()
     {
+        $this->alert("Enum  test Created Successfully");
         $model_name=ucfirst($this->argument('Model Name'));
         $fileName = $model_name . 'Builder';
         $folder_name = 'Models/Builders';
@@ -20,7 +21,7 @@ class MakeBuilderCommand extends Command
             $this->error("Model $model_name not exists");
             return;
         }
-
+        $this->alert("Builder $folder_name\\$fileName Created Successfully");
         !is_dir(app_path($folder_name)) && mkdir(app_path($folder_name));
         if (!is_file(app_path("$folder_name/" . $fileName . '.php'))) {
             \File::put(app_path($folder_name) . '/' . $fileName . '.php',
@@ -28,9 +29,7 @@ class MakeBuilderCommand extends Command
 
 namespace App\Models\Builders;
 
-use Illuminate\Database\Eloquent\Builder;
-
-class $fileName extends Builder
+class $fileName extends BaseBuilder
 {
 
 }");
@@ -43,7 +42,7 @@ class $fileName extends Builder
         $this->addBuilderToModel($model_path,$fileName);
     }
 
-    public function addBuilderToModel($model_path,$builder_name_without_extension)
+    public function addBuilderToModel($model_path,$builder_name_without_extension): void
     {
         $model_content=file_get_contents($model_path);
         if (strpos($model_content,$builder_name_without_extension)){
@@ -69,7 +68,7 @@ class $fileName extends Builder
 ";
         $newstr = substr_replace($model_content, $builder_data, -2, 0);
         $newstr = substr_replace($newstr, "
-use App\Models\Builders\TestBuilder;
+use App\Models\Builders\\$builder_name_without_extension;
 ", 30, 0);
 
         file_put_contents($model_path,$newstr);

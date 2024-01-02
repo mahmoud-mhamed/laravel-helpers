@@ -3,6 +3,9 @@
 namespace Mahmoudmhamed\LaravelHelpers;
 
 use Mahmoudmhamed\LaravelHelpers\Commands\LaravelHelpersCommand;
+use Mahmoudmhamed\LaravelHelpers\Commands\MakeBaseBuilderCommand;
+use Mahmoudmhamed\LaravelHelpers\Commands\MakeBuilderCommand;
+use Mahmoudmhamed\LaravelHelpers\Commands\MakeEnumCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -19,7 +22,10 @@ class LaravelHelpersServiceProvider extends PackageServiceProvider
             ->name('laravel-helpers')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_laravel-helpers_table')
-            ->hasCommand(LaravelHelpersCommand::class);
+//            ->hasMigration('create_laravel-helpers_table')
+            ->hasCommand(MakeBaseBuilderCommand::class)
+            ->hasCommand(MakeEnumCommand::class)
+            ->hasCommand(MakeBuilderCommand::class)
+        ;
     }
 }

@@ -38,4 +38,13 @@ trait EnumOptionsTrait
     {
         return array_combine(self::values(), self::names());
     }
+
+    public static function convertStringToEnum($string):?self
+    {
+        foreach (self::cases() as $case) {
+            if($case->value==$string)
+                return $case;
+        }
+        return null;
+    }
 }

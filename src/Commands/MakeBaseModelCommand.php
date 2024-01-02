@@ -22,7 +22,7 @@ class MakeBaseModelCommand extends Command
 namespace App\\$folder_name;
 
 use Illuminate\Database\Eloquent\Model;
-use Mahmoudmhamed\LaravelHelpers\Traits\ModelDateTrait;
+use Mahmoudmhamed\LaravelHelpers\Traits\ModelDateTextTrait;
 
 class $fileName extends Model
 {
