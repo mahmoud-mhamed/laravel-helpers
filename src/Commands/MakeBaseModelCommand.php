@@ -26,7 +26,7 @@ use Mahmoudmhamed\LaravelHelpers\Traits\ModelDateTextTrait;
 
 class $fileName extends Model
 {
-    use ModelDateTrait;
+    use ModelDateTextTrait;
 
 }");
              $this->alert("Base Model $folder_name\\$fileName Created Successfully");

@@ -101,6 +101,27 @@ return [
 
 ```
 
+Command To Make BaseModel File:
+
+```bash
+#must add \Mahmoudmhamed\LaravelHelpers\Providers\PackageServiceProvider::class to config=>app->providers array
+php artisan make:base-model
+```
+
+Command To Make BaseBuilder File:
+
+```bash
+#must add \Mahmoudmhamed\LaravelHelpers\Providers\PackageServiceProvider::class to config=>app->providers array
+php artisan make:base-builder
+```
+
+Command To Make Builder For Model:
+
+```bash
+#must add \Mahmoudmhamed\LaravelHelpers\Providers\PackageServiceProvider::class to config=>app->providers array
+php artisan make:builder ModelName
+```
+
 ## Credits
 
 - [mahmoud-mhamed](https://github.com/mahmoud-mhamed)
