@@ -119,6 +119,34 @@ Command To Make Builder For Model:
 php artisan make:builder ModelName
 ```
 
+Command To Clone Enums From App Enum To js:
+
+```bash
+php artisan enums:clone-to-js
+```
+### To allow auto generate file if use vite.config.js in plugins array add
+```
+    plugins: [
+    ....
+    {
+        name: "enum_clone",
+        enforce: "post",
+        handleHotUpdate({ server, file }) {
+            if (file.includes("/app/Enums")) {
+                exec(
+                    "php artisan enums:clone-to-js",
+                    (error, stdout) =>
+                        error === null &&
+                        console.log(`Enum Js File Generated Successfully !`)
+                );
+            }
+        },
+    },
+],
+
+```
+
+
 ## Credits
 
 - [mahmoud-mhamed](https://github.com/mahmoud-mhamed)

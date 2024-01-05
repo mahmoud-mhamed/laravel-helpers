@@ -2,7 +2,7 @@
 
 namespace Mahmoudmhamed\LaravelHelpers;
 
-use Mahmoudmhamed\LaravelHelpers\Commands\LaravelHelpersCommand;
+use Mahmoudmhamed\LaravelHelpers\Commands\CopyEnumsToJs;
 use Mahmoudmhamed\LaravelHelpers\Commands\MakeBaseBuilderCommand;
 use Mahmoudmhamed\LaravelHelpers\Commands\MakeBaseModelCommand;
 use Mahmoudmhamed\LaravelHelpers\Commands\MakeBuilderCommand;
@@ -28,6 +28,7 @@ class LaravelHelpersServiceProvider extends PackageServiceProvider
             ->hasCommand(MakeBaseModelCommand::class)
             ->hasCommand(MakeEnumCommand::class)
             ->hasCommand(MakeBuilderCommand::class)
+            ->hasCommand(CopyEnumsToJs::class)
         ;
     }
 }
