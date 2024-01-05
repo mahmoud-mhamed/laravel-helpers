@@ -9,7 +9,6 @@ This is where your description should go. Limit it to a paragraph or two. Consid
 
 ## Support us
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-helpers.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-helpers)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
@@ -38,11 +37,12 @@ You can publish command create builder:
 ```bash
 php artisan vendor:publish --tag="command-create-builder"
 ```
+## Before Use Any Command
+##### must add \Mahmoudmhamed\LaravelHelpers\Providers\PackageServiceProvider::class to config=>app->providers array
 
 Command To Make New Enum File:
 
 ```bash
-#must add \Mahmoudmhamed\LaravelHelpers\Providers\PackageServiceProvider::class to config=>app->providers array
 php artisan make:enum FileName
 ```
 
@@ -104,21 +104,18 @@ return [
 Command To Make BaseModel File:
 
 ```bash
-#must add \Mahmoudmhamed\LaravelHelpers\Providers\PackageServiceProvider::class to config=>app->providers array
 php artisan make:base-model
 ```
 
 Command To Make BaseBuilder File:
 
 ```bash
-#must add \Mahmoudmhamed\LaravelHelpers\Providers\PackageServiceProvider::class to config=>app->providers array
 php artisan make:base-builder
 ```
 
 Command To Make Builder For Model:
 
 ```bash
-#must add \Mahmoudmhamed\LaravelHelpers\Providers\PackageServiceProvider::class to config=>app->providers array
 php artisan make:builder ModelName
 ```
 
