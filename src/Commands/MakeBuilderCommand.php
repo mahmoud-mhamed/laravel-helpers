@@ -12,7 +12,6 @@ class MakeBuilderCommand extends Command
 
     public function handle()
     {
-        $this->alert("Enum  test Created Successfully");
         $model_name=ucfirst($this->argument('Model Name'));
         $fileName = $model_name . 'Builder';
         $folder_name = 'Models/Builders';
@@ -21,7 +20,6 @@ class MakeBuilderCommand extends Command
             $this->error("Model $model_name not exists");
             return;
         }
-        $this->alert("Builder $folder_name\\$fileName Created Successfully");
         !is_dir(app_path($folder_name)) && mkdir(app_path($folder_name));
         if (!is_file(app_path("$folder_name/" . $fileName . '.php'))) {
             \File::put(app_path($folder_name) . '/' . $fileName . '.php',
@@ -33,9 +31,9 @@ class $fileName extends BaseBuilder
 {
 
 }");
-            $this->alert("Builder $folder_name\\$fileName Created Successfully");
+            $this->alert("Builder $folder_name/$fileName Created Successfully");
         } else {
-            $this->info("Builder $folder_name\\$fileName already exists");
+            $this->info("Builder $folder_name/$fileName already exists");
         }
 
         //add builder data to model

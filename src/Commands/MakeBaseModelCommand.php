@@ -22,16 +22,14 @@ class MakeBaseModelCommand extends Command
 namespace App\\$folder_name;
 
 use Illuminate\Database\Eloquent\Model;
-use Mahmoudmhamed\LaravelHelpers\Traits\ModelDateTextTrait;
 
 class $fileName extends Model
 {
-    use ModelDateTextTrait;
 
 }");
-             $this->alert("Base Model $folder_name\\$fileName Created Successfully");
+             $this->alert("Base Model $folder_name/$fileName Created Successfully");
         } else {
-             $this->info("Base Model $folder_name\\$fileName already exists");
+             $this->info("Base Model $folder_name/$fileName already exists");
         }
     }
 }
