@@ -1,6 +1,6 @@
 <?php
 
-namespace Mahmoudmhamed\LaravelHelpers\Traits;
+namespace App\Traits;
 
 use Illuminate\Support\Collection;
 
@@ -19,9 +19,24 @@ trait EnumOptionsTrait
         });
     }
 
+    public static function getOptionsIdNameData(): Collection
+    {
+        return collect(self::cases())->map(function ($row){
+            $item['id'] = $row->value;
+            $item['name'] = self::getTrans($row);
+            return $item;
+        });
+    }
+
+    public static function getOptionsPluckData(): array
+    {
+        $options=self::getOptionsData()->toArray();
+        return array_combine(self::values(), array_column($options,'name'));
+    }
+
     public static function getTrans($case=null):?string
     {
-        return $case?__(config('helpers.enum_options_trait.trans_file_name','enums').'.' . class_basename(__CLASS__) . '.' . ($case?->value??$case)):null;
+        return $case?__('enums.' . class_basename(__CLASS__) . '.' . ($case?->value??$case)):null;
     }
 
     public static function names(): array

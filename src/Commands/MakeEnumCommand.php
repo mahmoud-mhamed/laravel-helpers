@@ -1,6 +1,6 @@
 <?php
 
-namespace Mahmoudmhamed\LaravelHelpers\Commands;
+namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
@@ -21,7 +21,7 @@ class MakeEnumCommand extends Command
 
 namespace App\\$folder_name;
 
-use Mahmoudmhamed\LaravelHelpers\Traits\EnumOptionsTrait;
+use App\Traits\EnumOptionsTrait;
 
 enum $fileName: string
 {

@@ -39,6 +39,7 @@ You can publish command make New Enum File:
 ```bash
 php artisan vendor:publish --tag="command-create-enum" 
 ```
+
 ```bash
 php artisan make:enum FileName
 ```

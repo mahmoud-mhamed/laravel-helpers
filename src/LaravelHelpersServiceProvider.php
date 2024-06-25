@@ -24,11 +24,6 @@ class LaravelHelpersServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews()
 //            ->hasMigration('create_laravel-helpers_table')
-            ->hasCommand(MakeBaseBuilderCommand::class)
-            ->hasCommand(MakeBaseModelCommand::class)
-            ->hasCommand(MakeEnumCommand::class)
-            ->hasCommand(MakeBuilderCommand::class)
-            ->hasCommand(CopyEnumsToJs::class)
         ;
     }
 }
