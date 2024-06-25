@@ -16,6 +16,7 @@ class PackageServiceProvider extends ServiceProvider
     {
         //publish create builder for model command
         $this->publishes([
+            __DIR__.'/../Classes/BaseBuilder.php' => app_path('Models/Builders/BaseBuilder.php'),
             __DIR__.'/../Commands/MakeBuilderCommand.php' => app_path('Console/Commands/MakeBuilderCommand.php'),
         ], 'command-create-builder');
 
@@ -24,7 +25,18 @@ class PackageServiceProvider extends ServiceProvider
             __DIR__.'/../Traits/EnumOptionsTrait.php' => app_path('Traits/EnumOptionsTrait.php'),
             __DIR__.'/../Commands/MakeEnumCommand.php' => app_path('Console/Commands/MakeEnumCommand.php'),
         ], 'command-create-enum');
+
+        //publish base model
+        $this->publishes([
+            __DIR__.'/../Classes/BaseModel.php' => app_path('Models/BaseModel.php'),
+        ], 'base-model');
+
+        //publish date text
+        $this->publishes([
+            __DIR__.'/../Traits/ModelDateTextTrait.php' => app_path('Traits/ModelDateTextTrait.php'),
+        ], 'date-text-trait');
     }
+
 
     /**
      * Register any application services.

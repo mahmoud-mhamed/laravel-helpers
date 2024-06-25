@@ -23,7 +23,6 @@ class LaravelHelpersServiceProvider extends PackageServiceProvider
             ->name('laravel-helpers')
             ->hasConfigFile()
             ->hasViews()
-//            ->hasMigration('create_laravel-helpers_table')
         ;
     }
 }
