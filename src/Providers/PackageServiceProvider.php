@@ -31,10 +31,16 @@ class PackageServiceProvider extends ServiceProvider
             __DIR__.'/../Classes/BaseModel.php' => app_path('Models/BaseModel.php'),
         ], 'base-model');
 
-        //publish date text
+        //publish date text trait
         $this->publishes([
             __DIR__.'/../Traits/ModelDateTextTrait.php' => app_path('Traits/ModelDateTextTrait.php'),
         ], 'date-text-trait');
+
+
+        //publish copy enums to js command
+        $this->publishes([
+            __DIR__.'/../Commands/CopyEnumsToJsCommand.php' => app_path('Console/Commands/CopyEnumsToJsCommand.php'),
+        ], 'clone-enums-to-js-command');
     }
 
 

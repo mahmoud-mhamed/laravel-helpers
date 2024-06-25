@@ -58,13 +58,12 @@ php artisan vendor:publish --tag="date-text-trait"
 ```
 
 
-
-
-Publish Command To Clone Enums From App Enum To js:
+Publish Command To Clone Enums From app => Enums To js:
 
 ```bash
-php artisan enums:clone-to-js
+php artisan vendor:publish --tag="clone-enums-to-js-command" 
 ```
+
 ### To allow auto generate file if use vite.config.js in plugins array add
 ```
     plugins: [

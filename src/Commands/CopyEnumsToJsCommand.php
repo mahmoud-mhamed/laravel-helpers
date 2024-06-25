@@ -1,11 +1,11 @@
 <?php
 
-namespace Mahmoudmhamed\LaravelHelpers\Commands;
+namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
-class CopyEnumsToJs extends Command
+class CopyEnumsToJsCommand extends Command
 {
     /**
      * The name and signature of the console command.
@@ -19,7 +19,7 @@ class CopyEnumsToJs extends Command
      *
      * @var string
      */
-    protected $description = 'clone All enums in app enums to js';
+    protected $description = 'clone All enums in app => Enums to js';
 
     /**
      * Execute the console command.
