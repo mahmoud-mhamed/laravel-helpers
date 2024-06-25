@@ -21,27 +21,24 @@ You can install the package via composer:
 ```bash
 composer require mahmoud-mhamed/laravel-helpers
 ```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="helpers-config"
-
-#for replace old config if exist
-php artisan vendor:publish --tag="helpers-config" --force 
-
-```
+## Before Use Any Command
+##### must add \Mahmoudmhamed\LaravelHelpers\Providers\PackageServiceProvider::class to config=>app->providers array
+#### to force publish any file add --force to command
 
 You can publish command create builder:
 
 ```bash
-php artisan vendor:publish --tag="command-create-builder"
+php artisan vendor:publish --tag="command-create-builder" 
 ```
-## Before Use Any Command
-##### must add \Mahmoudmhamed\LaravelHelpers\Providers\PackageServiceProvider::class to config=>app->providers array
+```bash
+php artisan make:builder ModelName 
+```
 
-Command To Make New Enum File:
+You can publish command make New Enum File:
 
+```bash
+php artisan vendor:publish --tag="command-create-enum" 
+```
 ```bash
 php artisan make:enum FileName
 ```
@@ -119,7 +116,7 @@ Command To Make Builder For Model:
 php artisan make:builder ModelName
 ```
 
-Command To Clone Enums From App Enum To js:
+Publish Command To Clone Enums From App Enum To js:
 
 ```bash
 php artisan enums:clone-to-js
@@ -150,7 +147,6 @@ php artisan enums:clone-to-js
 ## Credits
 
 - [mahmoud-mhamed](https://github.com/mahmoud-mhamed)
-- [All Contributors](../../contributors)
 
 ## License
 

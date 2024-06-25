@@ -16,7 +16,7 @@ class PackageServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+       /* $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
         $this->publishes([
             __DIR__.'/config/helpers.php' => config_path('helpers.php'),
         ]);
@@ -33,12 +33,16 @@ class PackageServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../Lang', 'helpers');
         $this->publishes([
             __DIR__.'/../lang' => $this->app->langPath('vendor/Lang'),
-        ]);
+        ]);*/
 
         //publish create builder for model command
         $this->publishes([
             __DIR__.'/../Commands/MakeBuilderCommand.php' => app_path('Console/Commands/MakeBuilderCommand.php'),
         ], 'command-create-builder');
+
+        $this->publishes([
+            __DIR__.'/../Commands/MakeEnumCommand.php' => app_path('Console/Commands/MakeEnumCommand.php'),
+        ], 'command-create-enum');
     }
 
     /**
@@ -48,8 +52,8 @@ class PackageServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(
+        /*$this->mergeConfigFrom(
             __DIR__.'/../../config/helpers.php', 'helpers'
-        );
+        );*/
     }
 }
