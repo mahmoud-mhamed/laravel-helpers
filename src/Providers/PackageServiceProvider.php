@@ -41,6 +41,11 @@ class PackageServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../Commands/CopyEnumsToJsCommand.php' => app_path('Console/Commands/CopyEnumsToJsCommand.php'),
         ], 'clone-enums-to-js-command');
+
+        //publish copy lang to js command
+        $this->publishes([
+            __DIR__.'/../Commands/CopyLangToJsCommand.php' => app_path('Console/Commands/CopyLangToJsCommand.php'),
+        ], 'clone-lang-to-js-command');
     }
 
 
