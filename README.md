@@ -47,28 +47,21 @@ php artisan make:enum FileName
 ```
 
 publish base model File:
-
 ```bash
 php artisan vendor:publish --tag="base-model" 
 ```
-publish base date text trait:
 
+publish base date text trait:
 ```bash
 php artisan vendor:publish --tag="date-text-trait" 
 ```
 
 
 Publish Command To Clone Enums From app => Enums To resources => js => enum.js:
-
 ```bash
 php artisan vendor:publish --tag="clone-enums-to-js-command"
 ```
 
-Publish Command To Clone Lang Folder from php To resources => js => lang:
-
-```bash
-php artisan vendor:publish --tag="clone-lang-to-js-command"
-```
 
 ### You Can Run Command From package.json by add to scripts
 ```

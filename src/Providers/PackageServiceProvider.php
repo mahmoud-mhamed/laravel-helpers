@@ -37,10 +37,6 @@ class PackageServiceProvider extends ServiceProvider
         ], 'date-text-trait');
 
 
-        //publish copy enums to js command
-        $this->publishes([
-            __DIR__.'/../Commands/CopyEnumsToJsCommand.php' => app_path('Console/Commands/CopyEnumsToJsCommand.php'),
-        ], 'clone-enums-to-js-command');
 
         //publish copy lang to js command
         $this->publishes([
