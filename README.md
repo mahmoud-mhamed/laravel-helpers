@@ -57,51 +57,6 @@ php artisan vendor:publish --tag="date-text-trait"
 ```
 
 
-Publish Command To Clone Enums From app => Enums To resources => js => enum.js:
-```bash
-php artisan vendor:publish --tag="clone-enums-to-js-command"
-```
-
-
-### You Can Run Command From package.json by add to scripts
-```
-{
-    ....
-    "scripts": {
-        "lang": "php artisan lang:run && php artisan ability:run",
-        "lang-run": "php artisan lang:run",
-        "ability-run": "php artisan ability:run",
-        "dev": "vite",
-        "build": "vite build"
-    },
-    ...
-}
-```
-
-
-### To allow auto generate file if use vite.config.js in plugins array add
-```
-    plugins: [
-    ....
-    {
-        name: "enum_clone",
-        enforce: "post",
-        handleHotUpdate({ server, file }) {
-            if (file.includes("/app/Enums")) {
-                exec(
-                    "php artisan enums:clone-to-js",
-                    (error, stdout) =>
-                        error === null &&
-                        console.log(`Enum Js File Generated Successfully !`)
-                );
-            }
-        },
-    },
-],
-
-```
-
-
 ## Credits
 
 - [mahmoud-mhamed](https://github.com/mahmoud-mhamed)

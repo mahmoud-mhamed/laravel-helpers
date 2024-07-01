@@ -35,13 +35,6 @@ class PackageServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../Traits/ModelDateTextTrait.php' => app_path('Traits/ModelDateTextTrait.php'),
         ], 'date-text-trait');
-
-
-
-        //publish copy lang to js command
-        $this->publishes([
-            __DIR__.'/../Commands/CopyLangToJsCommand.php' => app_path('Console/Commands/CopyLangToJsCommand.php'),
-        ], 'clone-lang-to-js-command');
     }
 
 
