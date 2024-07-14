@@ -35,6 +35,12 @@ php artisan vendor:publish --tag="command-create-builder"
 php artisan make:builder ModelName 
 ```
 
+publish command create service:
+
+```bash
+php artisan vendor:publish --tag="command-make-service" 
+```
+
 publish command make New Enum File:
 
 ```bash

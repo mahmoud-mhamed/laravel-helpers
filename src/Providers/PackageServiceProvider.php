@@ -40,6 +40,11 @@ class PackageServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../Traits/MorphModelTriggerTrait.php' => app_path('Traits/MorphModelTriggerTrait.php'),
         ], 'morph-model-trigger-trait');
+
+        $this->publishes([
+            __DIR__.'/../Classes/BaseService.php' => app_path('Services/BaseService.php'),
+            __DIR__.'/../Commands/MakeServiceCommand.php' => app_path('Console/Commands/MakeServiceCommand.php'),
+        ], 'command-make-service');
     }
 
 
