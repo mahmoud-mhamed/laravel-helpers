@@ -26,6 +26,11 @@ class PackageServiceProvider extends ServiceProvider
             __DIR__.'/../Commands/MakeEnumCommand.php' => app_path('Console/Commands/MakeEnumCommand.php'),
         ], 'command-create-enum');
 
+        //publish PaginatableTrait
+        $this->publishes([
+            __DIR__.'/../Traits/PaginatableTrait.php' => app_path('Traits/PaginatableTrait.php'),
+        ], 'paginatable-trait');
+
         //publish base model
         $this->publishes([
             __DIR__.'/../Classes/BaseModel.php' => app_path('Models/BaseModel.php'),

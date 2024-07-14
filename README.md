@@ -62,6 +62,11 @@ publish base date text trait:
 php artisan vendor:publish --tag="date-text-trait" 
 ```
 
+publish paginatable-trait :
+```bash
+php artisan vendor:publish --tag="paginatable-trait" 
+```
+
 publish morph model trigger trait:
 ```bash
 php artisan vendor:publish --tag="morph-model-trigger-trait" 
