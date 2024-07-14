@@ -45,6 +45,10 @@ class PackageServiceProvider extends ServiceProvider
             __DIR__.'/../Classes/BaseService.php' => app_path('Services/BaseService.php'),
             __DIR__.'/../Commands/MakeServiceCommand.php' => app_path('Console/Commands/MakeServiceCommand.php'),
         ], 'command-make-service');
+
+        $this->publishes([
+            __DIR__.'/../Classes/BouncerService.php' => app_path('Services/BouncerService.php'),
+        ], 'bouncer-service');
     }
 
 
