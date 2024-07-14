@@ -56,6 +56,18 @@ publish base date text trait:
 php artisan vendor:publish --tag="date-text-trait" 
 ```
 
+publish morph model trigger trait:
+```bash
+php artisan vendor:publish --tag="morph-model-trigger-trait" 
+```
+# Table columns
+```bash 
+$table->nullableMorphs('created_by');
+$table->nullableMorphs('updated_by');
+$table->nullableMorphs('deleted_by');
+$table->softDeletes();
+```
+
 
 ## Credits
 

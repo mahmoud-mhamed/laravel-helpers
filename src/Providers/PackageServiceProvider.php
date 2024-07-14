@@ -35,6 +35,11 @@ class PackageServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../Traits/ModelDateTextTrait.php' => app_path('Traits/ModelDateTextTrait.php'),
         ], 'date-text-trait');
+
+        //publish morph model trigger trait
+        $this->publishes([
+            __DIR__.'/../Traits/MorphModelTriggerTrait.php' => app_path('Traits/MorphModelTriggerTrait.php'),
+        ], 'morph-model-trigger-trait');
     }
 
 
