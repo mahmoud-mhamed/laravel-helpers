@@ -23,6 +23,7 @@ class PackageServiceProvider extends ServiceProvider
         //publish create enum
         $this->publishes([
             __DIR__.'/../Traits/EnumOptionsTrait.php' => app_path('Traits/EnumOptionsTrait.php'),
+            __DIR__.'/../Traits/EnumCastAppendAttributeTrait.php' => app_path('Traits/EnumCastAppendAttributeTrait.php'),
             __DIR__.'/../Commands/MakeEnumCommand.php' => app_path('Console/Commands/MakeEnumCommand.php'),
         ], 'command-create-enum');
 

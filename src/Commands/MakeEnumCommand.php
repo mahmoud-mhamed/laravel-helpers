@@ -52,21 +52,18 @@ enum $fileName: string
         if (strpos($model_content, $append_attribute)) {
             return;
         }
-        $attribute_name = lcfirst($enum_name) . 'Text';
-        $new_str=$this->addAttributeFunction($attribute_name,$enum_file_name,$column_name,$model_content);
+//        $attribute_name = lcfirst($enum_name) . 'Text';
 
-        $this->addUseAttributeAndEnum($enum_file_name, $new_str);
+        $this->addUseAttributeAndEnum($enum_file_name, $model_content);
 
-        $this->addPropertyRead($append_attribute, $new_str);
+        $this->addPropertyRead($append_attribute, $model_content);
 
-        $this->addAttributeToAppends($append_attribute, $new_str);
+        $this->addAttributeToCasts($column_name, $model_content, $enum_file_name);
 
-        $this->addAttributeToCasts($column_name, $new_str, $enum_file_name);
-
-        file_put_contents($model_path, $new_str);
+        file_put_contents($model_path, $model_content);
     }
 
-    private function addAttributeFunction($attribute_name,$enum_file_name,$column_name,$model_content): array|string
+    /*private function addAttributeFunction($attribute_name,$enum_file_name,$column_name,$model_content): array|string
     {
         $attribute_function = "
     protected function $attribute_name(): Attribute
@@ -77,8 +74,8 @@ enum $fileName: string
     }
 ";
         return substr_replace($model_content, $attribute_function, -2, 0);
-    }
-    private function addUseAttributeAndEnum($enum_file_name, &$modelContent): void
+    }*/
+    private function addUseAttributeAndEnum3($enum_file_name, &$modelContent): void
     {
         if (!str_contains($modelContent, 'Illuminate\Database\Eloquent\Casts\Attribute')) {
             $modelContent = substr_replace($modelContent, "use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -89,35 +86,27 @@ use App\Enums\\$enum_file_name;
 ", 30, 0);
         }
     }
-
-    private function addAttributeToAppends($append_attribute, &$new_str): void
+    private function addUseAttributeAndEnum($enum_file_name, &$modelContent): void
     {
-        $appends_pattern = '/protected\s+\$appends\s+=\s+\[([^\]]*)\]/s';
-        if (preg_match($appends_pattern, $new_str, $matches)) {
-            $appendsArray = $matches[1];
-
-            // Modify the appends array by adding the item
-            if (!empty($appendsArray)) {
-                $modifiedAppendsArray = rtrim($appendsArray, ", \t\n") . ", '$append_attribute'";
-            } else {
-                $modifiedAppendsArray = "'$append_attribute'";
-            }
-
-            // Replace the original appends array with the modified one
-            $new_str = str_replace($matches[0], "protected \$appends = [$modifiedAppendsArray]", $new_str);
-        } else {
-            $fillablePosition = strpos($new_str, 'protected $fillable');
-            if ($fillablePosition) {
-                $insertionPosition = $fillablePosition;
-                $insertion = "\n\n    protected \$appends = ['$append_attribute'];\n\n    ";
-                $new_str = substr_replace($new_str, $insertion, $insertionPosition, 0);
-            }
+        $appends='';
+        $new_line='
+';
+        if (!str_contains($modelContent, 'Illuminate\Database\Eloquent\Casts\Attribute')) {
+            $appends!='' && $appends.=$new_line;
+            $appends.="use Illuminate\Database\Eloquent\Casts\Attribute;";
         }
+        $appends!='' && $appends.=$new_line;
+        $appends.="use App\Enums\\$enum_file_name;";
+        if (!str_contains($modelContent, 'use App\Traits\EnumCastAppendAttributeTrait')) {
+            $appends!='' && $appends.=$new_line;
+            $appends.="use App\Traits\EnumCastAppendAttributeTrait;";
+        }
+        $modelContent = substr_replace($modelContent, $appends, 30, 0);
     }
 
     private function addAttributeToCasts($column_name, &$new_str, $enum_file_name): void
     {
-// Check if the property already exists in the casts array
+        // Check if the property already exists in the casts array
         if (strpos($new_str, "'$column_name' =>") !== false) {
             echo 'Property already exists in the casts array.';
             return;
@@ -149,5 +138,4 @@ use App\Enums\\$enum_file_name;
             1
         );
     }
-
 }
