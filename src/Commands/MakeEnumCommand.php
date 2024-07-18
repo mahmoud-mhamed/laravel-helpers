@@ -52,7 +52,6 @@ enum $fileName: string
         if (strpos($model_content, $append_attribute)) {
             return;
         }
-//        $attribute_name = lcfirst($enum_name) . 'Text';
 
         $this->addUseAttributeAndEnum($enum_file_name, $model_content);
 
@@ -121,7 +120,7 @@ use App\Enums\\$enum_file_name;
 
 // Insert the new property into the casts array
         $insertionPosition = $castsPosition + strlen("protected \$casts = [\n") - 1;
-        $insertion = "\n        '$column_name' => $enum_file_name::class,";
+        $insertion = "       '$column_name' => $enum_file_name::class,\n ";
         $new_str = substr_replace($new_str, $insertion, $insertionPosition, 0);
     }
 
@@ -131,7 +130,7 @@ use App\Enums\\$enum_file_name;
             '/\/\*\*(.*?)\*\//s',
             function ($matches) use ($append_attribute) {
                 $block = $matches[0];
-                $newAnnotation = "* @property-read string \$$append_attribute";
+                $newAnnotation = " * @property-read string \$$append_attribute";
                 return str_replace('*/', "$newAnnotation\n */", $block);
             },
             $new_str,
