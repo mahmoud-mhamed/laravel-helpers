@@ -51,6 +51,9 @@ php artisan vendor:publish --tag="command-create-enum"
 ```bash
 php artisan make:enum FileName
 ```
+```bash
+php artisan make:enum FileName --model=Product
+```
 
 publish base model File:
 ```bash
