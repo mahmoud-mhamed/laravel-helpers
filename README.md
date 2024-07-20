@@ -70,6 +70,12 @@ publish paginatable-trait :
 php artisan vendor:publish --tag="paginatable-trait" 
 ```
 
+publish UseTranslationsTrait : work with spatie laravel translatable 
+to append attribute for translation column
+```bash
+php artisan vendor:publish --tag="model-column-translation-trait" 
+```
+
 publish morph model trigger trait:
 ```bash
 php artisan vendor:publish --tag="morph-model-trigger-trait" 

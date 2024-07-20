@@ -32,6 +32,10 @@ class PackageServiceProvider extends ServiceProvider
             __DIR__.'/../Traits/PaginatableTrait.php' => app_path('Traits/PaginatableTrait.php'),
         ], 'paginatable-trait');
 
+        $this->publishes([
+            __DIR__.'/../Traits/UseTranslationsTrait.php' => app_path('Traits/UseTranslationsTrait.php'),
+        ], 'model-column-translation-trait');
+
         //publish base model
         $this->publishes([
             __DIR__.'/../Classes/BaseModel.php' => app_path('Models/BaseModel.php'),
