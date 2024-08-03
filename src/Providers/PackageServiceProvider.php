@@ -59,6 +59,11 @@ class PackageServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../Classes/BouncerService.php' => app_path('Services/BouncerService.php'),
         ], 'bouncer-service');
+
+
+        $this->publishes([
+            __DIR__.'/../Commands/TransLangFilesCommand.php' => app_path('Console/Commands/TransLangFilesCommand.php'),
+        ], 'trans-lang-file-command');
     }
 
 

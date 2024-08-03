@@ -88,6 +88,14 @@ $table->nullableMorphs('deleted_by');
 $table->softDeletes();
 ```
 
+publish trans-lang-file-command:
+```bash
+composer require datlechin/laravel-google-translate
+```
+```bash
+php artisan vendor:publish --tag="trans-lang-file-command" 
+```
+
 
 ## Credits
 
