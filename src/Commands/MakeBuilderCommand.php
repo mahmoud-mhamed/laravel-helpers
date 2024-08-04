@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Models\City;
 use Illuminate\Console\Command;
 
 class MakeBuilderCommand extends Command
@@ -22,11 +23,15 @@ class MakeBuilderCommand extends Command
         }
         !is_dir(app_path($folder_name)) && mkdir(app_path($folder_name));
         if (!is_file(app_path("$folder_name/" . $fileName . '.php'))) {
+            $use_content='App\Models\\'.$model_name;
             \File::put(app_path($folder_name) . '/' . $fileName . '.php',
                 "<?php
 
 namespace App\Models\Builders;
 
+use $use_content;
+
+/**@mixin $model_name*/
 class $fileName extends BaseBuilder
 {
 
