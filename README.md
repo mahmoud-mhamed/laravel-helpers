@@ -31,7 +31,7 @@ composer require mahmoud-mhamed/laravel-helpers
 ##### must add to config -> app.php
 ```bash
   'providers' => ServiceProvider::defaultProviders()->merge([
-        \Mahmoudmhamed\InertiaVueHelpers\Providers\PackageServiceProvider::class,
+        \Mahmoudmhamed\LaravelHelpers\Providers\PackageServiceProvider::class,
     ])->toArray()
 ```
 
