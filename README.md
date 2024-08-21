@@ -22,7 +22,19 @@ install the package via composer:
 composer require mahmoud-mhamed/laravel-helpers
 ```
 ## Before Use Any Command
-##### must add \Mahmoudmhamed\LaravelHelpers\Providers\PackageServiceProvider::class to config=>app->providers array
+### for laravel < 11
+##### must add  to config -> app -> providers array
+```bash
+  \Mahmoudmhamed\LaravelHelpers\Providers\PackageServiceProvider::class
+```
+### for laravel >= 11
+##### must add to config -> app.php
+```bash
+  'providers' => ServiceProvider::defaultProviders()->merge([
+        \Mahmoudmhamed\InertiaVueHelpers\Providers\PackageServiceProvider::class,
+    ])->toArray()
+```
+
 #### to force publish any file add --force to command
 
 publish command create builder:
