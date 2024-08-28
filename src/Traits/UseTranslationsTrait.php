@@ -23,8 +23,10 @@ trait UseTranslationsTrait
     {
         foreach ($model->translatable as $translate) {
             if ($type === 'retrieved') {
-                if (self::stringIsJson($model->getAttributes()[$translate]))
+                if (data_get($model->getAttributes(), $translate) && self::stringIsJson(@$model->getAttributes()[$translate])) {
                     $model->setAttribute($translate . '_text', nl2br($model->getTranslation($translate, app()->getLocale())));
+                } else
+                    $model->setAttribute($translate . '_text', data_get($model->getAttributes(), $translate));
             } else {
                 unset($model->{$translate . '_text'});
             }
@@ -33,7 +35,7 @@ trait UseTranslationsTrait
 
     private static function stringIsJson(string $string): bool
     {
-        json_decode($string);
-        return json_last_error() === JSON_ERROR_NONE;
+        $d = json_decode($string, true);
+        return json_last_error() === JSON_ERROR_NONE && data_get($d, 'ar');
     }
 }
