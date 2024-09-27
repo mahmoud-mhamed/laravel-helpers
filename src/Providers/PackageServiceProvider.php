@@ -64,6 +64,11 @@ class PackageServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../Commands/TransLangFilesCommand.php' => app_path('Console/Commands/TransLangFilesCommand.php'),
         ], 'trans-lang-file-command');
+
+        $this->publishes([
+            __DIR__.'/../Traits/FileUploadTrait.php' => app_path('Traits/FileUploadTrait.php'),
+            __DIR__.'/../fileupload.php' => app_path('config/fileupload.php'),
+        ], 'trans-lang-file-command');
     }
 
 
